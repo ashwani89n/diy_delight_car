@@ -1,0 +1,136 @@
+nav {
+    background-color: rgba(0, 0, 0, 0.8);
+    width: 100vw;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.nav-header {
+    display: flex;
+    flex-direction: column; 
+    align-items: flex-start; 
+}
+.nav-buttons {
+    display: flex; 
+}
+
+.nav-buttons a{
+    padding: 10px;
+    align-content: center;
+    color:white;
+
+}
+
+.exterior-button-container button{
+    margin-top: 10px;
+    background-color: rgb(115, 2, 12);
+}
+
+.exterior-button-container input{
+    border: 2px solid white;
+}
+
+.convertible{
+    color: white;
+    margin-top: 30px;
+    font-weight: 500;
+    border: 2px solid transparent;
+    margin-right: 10px;
+}
+.exterior-button-container {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+    position: relative;
+}
+
+.exterior-button-container button:hover {
+    margin-top: 10px;
+    border: 2px solid white;
+    background-color: rgb(115, 2, 12);
+}
+
+.popup {
+    position: absolute;
+    top: 10%; 
+    left: 30%; 
+    transform: translateX(-50%);
+    height: 360px;
+    margin-top: 150px;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.popup-content {
+    background-color: black;
+    border:  3px solid rgb(115, 2, 12);
+    overflow-y: auto;
+    flex-direction: column;
+    height:360px;
+    padding-left: 10px;
+    padding-right: 20px;
+}
+
+.popup-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 10px;
+    width: 100%;
+    padding-left: 10px;
+    grid-auto-rows: 110px;
+    margin-bottom: 50px;
+}
+
+.event-information {
+    background-color: #303030;
+    border: 1px solid white;
+    padding: 5px;
+    color: white;
+    width:100px;
+    height: 100px;
+    font-weight: lighter;
+    font-size: 12px;
+    align-content: center;
+    text-align: center; 
+}
+
+.create-car-price {
+    position: absolute;
+    top: 80vh;
+    left: 50px;
+    width: 220px;
+    height: 80px;
+    background-color: var(--primary);
+    border: 2px solid rgb(51, 51, 51);
+    border-radius: 5px;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 700;
+    font-size: 2em;
+}
+
+.create-car-name {
+    display: flex;
+    align-items: center; 
+    margin-left: 100px; 
+}
+
+.create-car-name input[type="text"] {
+    border: 2px solid white;
+    margin-right: 10px;
+    height:45px;
+    align-self: end;
+}
+
+.create-car-name input[type="submit"] {
+    background-color: rgb(115, 2, 12);
+    color: white;
+    border: 2px solid white;
+    padding: 5px 10px;
+}

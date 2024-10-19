@@ -1,0 +1,30 @@
+
+
+header {
+    display: flex; 
+    align-items: center; 
+}
+
+header h3 {
+    margin: 0; 
+}
+
+.car-card {
+    margin-top: 10px; 
+}
+
+.car-summary, .car-price {
+    margin: 5px 0; 
+}
+
+.car-summary-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.car-price-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

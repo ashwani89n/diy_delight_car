@@ -44,6 +44,7 @@ nav {
     gap: 10px;
     margin-top: 10px;
     position: relative;
+    margin-left: 50px;
 }
 
 .exterior-button-container button:hover {
@@ -54,8 +55,8 @@ nav {
 
 .popup {
     position: absolute;
-    top: 10%; 
-    left: 30%; 
+    top: 12%; 
+    left: 41.5%; 
     transform: translateX(-50%);
     height: 360px;
     margin-top: 150px;
@@ -126,6 +127,7 @@ nav {
     margin-right: 10px;
     height:45px;
     align-self: end;
+    color:white;
 }
 
 .create-car-name input[type="submit"] {
@@ -134,3 +136,49 @@ nav {
     border: 2px solid white;
     padding: 5px 10px;
 }
+
+.event-information:hover{
+    border: 2px solid #750000;
+}
+
+.event-information.selected {
+    border: 3px solid #750000;
+}
+
+.car-decription {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+main {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.card {
+    flex: 0 1 calc(90%);
+    background-color: rgba(0, 0, 0, 0.582);
+    margin-bottom: 20px;
+    border-radius: 10px;
+    padding: 30px;
+    justify-content: center;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 10px;
+}
+
+.button-container {
+    display: flex;
+    gap: 5px; 
+    margin-top: 20px; 
+    margin-left: 80%;
+}
+.button-container button {
+    padding: 10px 15px; 
+    cursor: pointer; 
+}
+

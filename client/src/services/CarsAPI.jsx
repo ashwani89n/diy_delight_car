@@ -13,6 +13,21 @@ const getAllCars = async () => {
     }
 };
 
+
+const getCarById =async (id) => {
+    try {
+        const response = await fetch(`${API_BASE_URL}/cars/${id}`);
+        console.log(response);
+        if (!response.ok) {
+            throw new Error(`Failed to fetch car with ID ${id}`);
+        }
+        return await response.json();
+    } catch (error) {
+        console.error(error);
+        throw error;
+    }
+};
+
 const getExteriors = async () => {
     try {
         const response = await fetch(`${API_BASE_URL}/exteriors`);
@@ -110,7 +125,6 @@ const getWheels = async () => {
     }
 };
 
-
 const getWheelById =async (id) => {
     try {
         const response = await fetch(`${API_BASE_URL}/wheels/${id}`);
@@ -125,4 +139,4 @@ const getWheelById =async (id) => {
     }
 };
 
-export default { getAllCars, getExteriors, getExteriorById, getInteriors, getInteriorById , getRoofs, getRoofById, getWheels, getWheelById};
+export default { getAllCars, getCarById, getExteriors, getExteriorById, getInteriors, getInteriorById , getRoofs, getRoofById, getWheels, getWheelById};

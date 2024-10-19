@@ -10,6 +10,8 @@ const __dirname = path.dirname(__filename)
 const itemsRoutes = express.Router()
 
 itemsRoutes.get('/cars', ItemsController.getItems)
+itemsRoutes.get('/cars/:id', ItemsController.getItemById)
+
 itemsRoutes.get('/exteriors', ItemsController.getExteriors)
 itemsRoutes.get('/exteriors/:id', ItemsController.getExteriorById)
 

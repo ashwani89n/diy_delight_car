@@ -10,6 +10,20 @@ const getItems = async (req, res) => {
         res.status(409).json( { error: error.message } )
       }
 };
+
+const getItemById = async (req, res) => {
+    const { id } = req.params; 
+    try {
+        const results = await pool.query('SELECT * FROM CustomItem WHERE id = $1', [id]);
+        if (results.rows.length === 0) {
+            return res.status(404).json({ error: 'Event not found' });
+        }
+        res.status(200).json(results.rows[0]); 
+    } catch (error) {
+        res.status(409).json({ error: error.message });
+    }
+};
+
 const getExteriors = async (req, res) => {
     try{
         const results = await pool.query('SELECT * FROM exteriors');
@@ -108,12 +122,12 @@ const getWheelById = async (req, res) => {
 
 const createItem = async (req, res) => {
     try {
-        const { name, pricepoint, audience, image, description, submittedby, submittedon } = req.body
+        const { name, isconvertible, exterior, roof, wheels, interior, price} = req.body
         const results = await pool.query(`
-            INSERT INTO gifts (name, pricepoint, audience, image, description, submittedby, submittedon)
+            INSERT INTO customitem (name, isconvertible, exterior, roof, wheels, interior, price)
             VALUES($1, $2, $3, $4, $5, $6, $7)
             RETURNING *`,
-            [name, pricepoint, audience, image, description, submittedby, submittedon]
+            [name, isconvertible, exterior, roof, wheels, interior, price]
         )
   
         res.status(201).json(results.rows[0])
@@ -125,10 +139,10 @@ const createItem = async (req, res) => {
   const updateItem = async (req, res) => {
     try {
         const id = parseInt(req.params.id)
-        const { name, pricepoint, audience, image, description, submittedby, submittedon } = req.body
+        const { name, isconvertible, exterior, roof, wheels, interior, price} = req.body
         const results = await pool.query(`
-            UPDATE gifts SET name = $1, pricepoint = $2, audience = $3, image = $4, description = $5, submittedby = $6, submittedon= $7 WHERE id = $8`,
-            [name, pricepoint, audience, image, description, submittedby, submittedon, id]
+            UPDATE customitem SET name = $1, isconvertible = $2, exterior = $3, roof = $4, wheels = $5, interior = $6, price= $7 WHERE id = $8`,
+            [name, isconvertible, exterior, roof, wheels, interior, price]
         )
         res.status(200).json(results.rows[0])
     } catch (error) {
@@ -139,7 +153,7 @@ const createItem = async (req, res) => {
   const deleteItem   = async (req, res) => {
     try {
         const id = parseInt(req.params.id)
-        const results = await pool.query('DELETE FROM gifts WHERE id = $1', [id])
+        const results = await pool.query('DELETE FROM customitem WHERE id = $1', [id])
         res.status(200).json(results.rows[0])
     } catch (error) {
         res.status(409).json( { error: error.message } )
@@ -149,6 +163,7 @@ const createItem = async (req, res) => {
   
 const ItemsController = {
     getItems,
+    getItemById,
     getExteriors,
     getExteriorById,
     getInteriors,
